@@ -17,6 +17,12 @@
       <input type="number" id="amount" v-model="amount" />
     </div>
     <div class="row">
+      <div class="increment-buttons">
+        <div class="decrease" @click="decreaseAmount">-</div>
+        <div class="increase" @click="increaseAmount">+</div>
+      </div>
+    </div>
+    <div class="row">
       <div @click="add" class="button">Ekle</div>
     </div>
   </div>
@@ -44,6 +50,12 @@ export default {
       this.$store.dispatch("createOrder", data);
       this.$router.go(-1);
     },
+    increaseAmount() {
+      this.amount++;
+    },
+    decreaseAmount() {
+      this.amount--;
+    },
   },
 };
 </script>
@@ -60,10 +72,27 @@ input {
 }
 .button {
   text-align: center;
-  padding: 0.5em;
+  padding: 1em;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: lightgreen;
+  background-color: rgba(63, 89, 236, 0.61);
   cursor: pointer;
+}
+.increment-buttons {
+  display: flex;
+  gap: 1em;
+  div {
+    padding: 0.5em;
+    font-size: x-large;
+    border: 1px solid black;
+    text-align: center;
+    flex: 1;
+    &.increase {
+      background-color: rgba(0, 128, 0, 0.5);
+    }
+    &.decrease {
+      background-color: rgba(255, 0, 0, 0.5);
+    }
+  }
 }
 </style>
