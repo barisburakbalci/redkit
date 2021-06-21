@@ -16,6 +16,24 @@ export default createStore({
         state[model + "s"] = collection.useLoad();
       }
     },
+    addProduct(state, { name, price }) {
+      state.productCollection.create({
+        name,
+        price,
+        num: state.products.length + 1,
+      });
+    },
+    addDesk(state) {
+      state.deskCollection.create({
+        num: state.desks.length + 1,
+      });
+    },
+    updateProduct(state, { id, name, price }) {
+      state.productCollection.update(id, {
+        name,
+        price,
+      });
+    },
   },
   actions: {
     checkout({ state }, orders) {

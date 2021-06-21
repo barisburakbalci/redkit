@@ -1,0 +1,6 @@
+[*.*]
+trim_trailing_whitespace = true
+end_of_line = lf
+
+[*.vue]
+tab_width = 2

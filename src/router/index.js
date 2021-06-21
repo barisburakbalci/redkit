@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Desk from "../views/Desk.vue";
 import Order from "../views/Order.vue";
 import Checkout from "../views/Checkout.vue";
+import Admin from "../views/Admin.vue";
 import Auth from "../views/Auth.vue";
 
 const routes = [
@@ -28,6 +29,12 @@ const routes = [
     path: "/checkout",
     name: "Checkout",
     component: Checkout,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
     meta: { requiresAuth: true },
   },
   {
