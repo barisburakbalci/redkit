@@ -37,7 +37,9 @@ export default {
   }),
   computed: {
     products() {
-      return this.$store.state.products;
+      return [...this.$store.state.products].sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
     },
   },
   methods: {
